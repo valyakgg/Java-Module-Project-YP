@@ -13,11 +13,15 @@ public class Main {
             int speed;
             while (true) {
                 System.out.println("Введите скорость машины № " + (i + 1) + " (от 1 до 250): ");
-                speed = scanner.nextInt();
-                if (speed > 0 && speed <= 250) {
-                    break;
-                } else {
-                    System.out.println("Введена неправильная скорость. Попробуйте снова.");
+                try {
+                    speed = Integer.parseInt(scanner.next());
+                    if (speed > 0 && speed <= 250) {
+                        break;
+                    } else {
+                        System.out.println("Введена неправильная скорость. Попробуйте снова.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Это не число. Пожалуйста, введите число от 1 до 250.");
                 }
             }
 
